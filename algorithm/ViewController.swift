@@ -24,8 +24,9 @@ class ViewController: UIViewController {
         self.hill();
         self.hill2();
         
-        self.sort(a: &self.data, left: 0, right: self.data.count - 1)
-        
+//        self.sort(a: &self.data, left: 0, right: self.data.count - 1)
+//        self.countingSort();
+        self.heapSort(sortArray: self.data);
     }
     
     func createData()  {
@@ -132,7 +133,6 @@ class ViewController: UIViewController {
             }
             gap /= 2
         }
-        
         print("希尔排序\(data) 次数\(num)")
     }
     
@@ -165,6 +165,7 @@ class ViewController: UIViewController {
         print("希尔排序\(data) 次数\(num)")
     }
     
+    //快速排序
     func sort(a : inout [Int], left: Int ,right: Int )
     {
         if(left >= right)/*如果左边索引大于或者等于右边的索引就代表已经整理完成一个组了*/
@@ -202,9 +203,102 @@ class ViewController: UIViewController {
         sort(a: &a, left: left, right: i - 1);/*最后用同样的方式对分出来的左边的小组进行同上的做法*/
         sort(a: &a, left: i + 1, right: right);/*用同样的方式对分出来的右边的小组进行同上的做法*/
         /*当然最后可能会出现很多分左右，直到每一组的i = j 为止*/
-        
         print(a)
     }
     
+    //计数排序
+    
+    func countingSort()  {
+        
+        var max = self.data[0]
+        
+        for j in 1..<self.data.count {
+            if(max < self.data[j]){
+                max = self.data[j];
+            }
+        }
+        
+        var data = self.data
+    
+        var backetArray:[NSInteger] = Array.init(repeating: 0, count: max + 1),
+            sortedIndex = 0,
+            arrayLen = data.count,
+            bucketLen = max + 1
+        
+        var i = 0
+        while i < arrayLen {
+            let key: Int = data[i]
+            backetArray[key] += 1
+            print("key : \(key) count:\(backetArray[key])")
+            i += 1
+        }
+        
+        var n = 0
+        
+        while n < bucketLen {
+            while backetArray[n] > 0 {
+                data[sortedIndex] = n;
+                sortedIndex  += 1
+                backetArray[n] -= 1
+            }
+            n += 1
+        }
+        
+        print("计数排序\(data)")
+    }
+    // 堆排序
+    var len :Int = 0
+    
+    func heapSort(sortArray:[NSInteger]) -> Void {
+        
+        if sortArray.count <= 1 {
+            return;
+        }
+        var tempSortArray = sortArray
+        print(tempSortArray);
+        buildMaxHeap(array: &tempSortArray)
+        print(tempSortArray);
+        var index = tempSortArray.count - 1
+        while index > 0 {
+            swap(array: &tempSortArray, leftIndex: 0, rightIndex: index)
+            len -= 1
+            heapify(array: &tempSortArray, index: 0)
+            index -= 1
+        }
+        print("堆排序\(tempSortArray)")
+    }
+    
+    func buildMaxHeap(array: inout [NSInteger]) -> Void {
+        len = array.count
+        var i = len / 2
+        while i >= 0 {
+            heapify(array: &array, index: i)
+            i -= 1
+        }
+    }
+    
+    func heapify(array: inout [NSInteger], index: Int) -> Void {
+     
+        var left = 2 * index + 1, right = 2 * index + 2, largest = index
+        
+        if left < len && array[left] > array[largest] {
+            largest = left
+        }
+        
+        if right < len && array[right] > array[largest] {
+            largest = right
+        }
+        
+        if largest != index {
+            swap(array: &array, leftIndex: index, rightIndex: largest)
+            heapify(array: &array, index: largest)
+        }
+    }
+    
+    func swap(array: inout [NSInteger], leftIndex:Int, rightIndex:Int) -> Void {
+        let temp  = array[leftIndex]
+        array[leftIndex] =  array[rightIndex]
+        array[rightIndex] = temp
+    }
 }
 
