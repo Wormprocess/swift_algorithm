@@ -12,6 +12,7 @@
 		CE1D6638224A32DE00541C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D6636224A32DE00541C2B /* Main.storyboard */; };
 		CE1D663A224A32E000541C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1D6639224A32E000541C2B /* Assets.xcassets */; };
 		CE1D663D224A32E000541C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D663B224A32E000541C2B /* LaunchScreen.storyboard */; };
+		CE8C702A225C81FE00771A8A /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C7029225C81FE00771A8A /* ChartsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		CE1D6639224A32E000541C2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1D663C224A32E000541C2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1D663E224A32E000541C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8C7029225C81FE00771A8A /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				CE1D6632224A32DE00541C2B /* AppDelegate.swift */,
 				CE1D6634224A32DE00541C2B /* ViewController.swift */,
+				CE8C7029225C81FE00771A8A /* ChartsView.swift */,
 				CE1D6636224A32DE00541C2B /* Main.storyboard */,
 				CE1D6639224A32E000541C2B /* Assets.xcassets */,
 				CE1D663B224A32E000541C2B /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				CE1D6635224A32DE00541C2B /* ViewController.swift in Sources */,
 				CE1D6633224A32DE00541C2B /* AppDelegate.swift in Sources */,
+				CE8C702A225C81FE00771A8A /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48YADTC9TS;
 				INFOPLIST_FILE = algorithm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48YADTC9TS;
 				INFOPLIST_FILE = algorithm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
